@@ -1,0 +1,29 @@
+.\" Manpage for UntitledTextBuildSystem.
+.TH man 1 "29 Jan 2024" "utbs man page"
+.SH NAME
+utbs \- Simple build system for automatic build.
+.SH SYNOPSIS
+utbs -p [path] -f [function]
+.SH OPTIONS
+-f --function - Function in Utbsource file to start.
+
+-p --path - Path to Utbsource file.
+
+-y --yes - Confirming question.
+
+-p --parallel - Parallel process (faster).
+
+-d --debug - Debuging utbs.
+.SH EXAMPLES
+You can create file named "Utbsource" and check this example:
+        this is comment
+        EXAMPLE="test"
+        EXAMPLE2="working2"
+        name <
+            # this is comment number 2
+            echo test2:
+            echo @{EXAMPLE}:
+        >
+        example < echo working: echo @{EXAMPLE2}: >
+.SH AUTHOR
+Operachi

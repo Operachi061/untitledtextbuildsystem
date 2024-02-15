@@ -1,0 +1,24 @@
+# variables
+root = .
+builddir = build
+cflags = -Wall -Werror -Wpedantic -Wno-tautological-compare
+
+# rules
+rule cc
+    command = clang $cflags -c $in -o $out 
+
+rule link
+    command = clang $in -o $out
+
+rule clean
+    command = rm -f $builddir/*.o $root/root/usr/bin/*
+
+# building
+build $builddir/utbs/main.o: cc $root/src/untitledtextbuildsystem/main.c
+build $builddir/utbs/loadbar.o: cc $root/src/untitledtextbuildsystem/loadbar.c
+build $builddir/utbs/parallel.o: cc $root/src/untitledtextbuildsystem/parallel.c
+build $builddir/utbs/parser.o: cc $root/src/untitledtextbuildsystem/parser.c
+build $builddir/utbs/lexer.o: cc $root/src/untitledtextbuildsystem/lexer.c
+
+# linking
+build $root/root/bin/utbs: link $builddir/utbs/main.o $builddir/utbs/loadbar.o $builddir/utbs/parallel.o $builddir/utbs/parser.o $builddir/utbs/lexer.o 

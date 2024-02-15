@@ -14,11 +14,11 @@ rule clean
     command = rm -f $builddir/*.o $root/root/usr/bin/*
 
 # building
-build $builddir/utbs/main.o: cc $root/src/untitledtextbuildsystem/main.c
-build $builddir/utbs/loadbar.o: cc $root/src/untitledtextbuildsystem/loadbar.c
-build $builddir/utbs/parallel.o: cc $root/src/untitledtextbuildsystem/parallel.c
-build $builddir/utbs/parser.o: cc $root/src/untitledtextbuildsystem/parser.c
-build $builddir/utbs/lexer.o: cc $root/src/untitledtextbuildsystem/lexer.c
+build $builddir/main.o: cc $root/src/main.c
+build $builddir/loadbar.o: cc $root/src/loadbar.c
+build $builddir/parallel.o: cc $root/src/parallel.c
+build $builddir/parser.o: cc $root/src/parser.c
+build $builddir/lexer.o: cc $root/src/lexer.c
 
 # linking
-build $root/root/bin/utbs: link $builddir/utbs/main.o $builddir/utbs/loadbar.o $builddir/utbs/parallel.o $builddir/utbs/parser.o $builddir/utbs/lexer.o 
+build $root/root/bin/utbs: link $builddir/main.o $builddir/loadbar.o $builddir/parallel.o $builddir/parser.o $builddir/lexer.o 
